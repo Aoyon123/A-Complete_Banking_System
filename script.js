@@ -1,7 +1,4 @@
-'use strict';
-
-///////////////////////////////////////
-// Modal window
+('use strict');
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
@@ -19,6 +16,12 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+///////////////////////////////////////
+// Modal window
+
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
 
 btnCloseModal.addEventListener('click', closeModal);
@@ -30,8 +33,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+//button Scrolling
 
 btnScrollTo.addEventListener('click', function (e) {
   const s1coords = section1.getBoundingClientRect();
@@ -57,4 +59,18 @@ btnScrollTo.addEventListener('click', function (e) {
   // });
 
   section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Page navigation
+
+document.querySelector('.nav__links').addEventListener('click',function(e){
+ e.preventDefault();
+
+// Matching Strategy
+if(e.target.classList.contains('nav__link')){
+  const id=e.target.getAttribute('href');
+  document.querySelector(id).scrollIntoView({
+    bahavior:'smooth'
+  });
+}
 });

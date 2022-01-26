@@ -156,6 +156,20 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 headerObserver.observe(header);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ///////////////////////////////////////
 // Reveal sections
 const allSections = document.querySelectorAll('.section');
@@ -241,6 +255,7 @@ const slider = function () {
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
     );
   };
+
   // Next slide
   const nextSlide = function () {
     if (curSlide === maxSlide - 1) {
